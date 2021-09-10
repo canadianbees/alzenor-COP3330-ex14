@@ -12,6 +12,7 @@ public class Store
     private final int orderAmt;
     private final String state;
 
+    //gets the order amount and the state location from user
     public Store()
     {
         Scanner input = new Scanner(System.in);
@@ -25,6 +26,7 @@ public class Store
 
     public void TaxCalc()
     {
+        //if user is in wisconsin, calculate the amount of tax and add it to the total
         if(this.state.matches("WI") || this.state.matches("wi") || this.state.matches("Wi") || this.state.matches("wI"))
         {
             DecimalFormat round = new DecimalFormat("###.##");
@@ -38,6 +40,7 @@ public class Store
             return;
         }
 
+        //if they are in another state, there is no tax added so the total is printed.
         System.out.println("The total is $"+this.orderAmt+".");
     }
 
