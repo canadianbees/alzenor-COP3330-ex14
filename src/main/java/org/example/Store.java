@@ -23,9 +23,11 @@ public class Store
         this.state = input.next();
     }
 
+    //determines if tax is needed and adds the appropriate amount if so
     public void TaxCalc()
     {
         String finalOut;
+        //if user is in wisconsin
         if(this.state.matches("WI") || this.state.matches("wi") || this.state.matches("Wi") || this.state.matches("wI"))
         {
             DecimalFormat round = new DecimalFormat("##0.00");
@@ -35,11 +37,13 @@ public class Store
             finalOut = "The subtotal is $"+this.orderAmt+".\nThe tax is $"+(round.format(this.orderAmt*tax))+".\nThe total is $"+round.format(total)+".";
         }
 
+        //if they are in another state
         else
         {
             finalOut = "The total is $"+this.orderAmt+".";
         }
 
+        //prints output
         System.out.print(finalOut);
     }
 
